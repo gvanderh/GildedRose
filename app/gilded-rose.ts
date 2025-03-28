@@ -125,12 +125,20 @@ class BackstagePassesItem extends GoblinItem {
   }
 }
 
+class ConjuredItem extends GoblinItem {
+  updateQuality() {
+    this.decreaseSellIn();
+    this.decreaseQuality(2);
+  }
+}
+
 class GoblinFactory {
   static from(item: Item) {
     switch (item.name) {
       case 'Aged Brie': return new AgedBrieItem(item);
       case 'Sulfuras, Hand of Ragnaros': return new SulfurasItem(item);
       case 'Backstage passes to a TAFKAL80ETC concert': return new BackstagePassesItem(item);
+      case 'Conjured Mana Cake': return new ConjuredItem(item);
       default: return new GoblinItem(item);
     }
   }

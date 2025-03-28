@@ -69,4 +69,12 @@ describe('Gilded Rose', () => {
     expect(item.sellIn).toBe(-1);
     expect(item.quality).toBe(0);
   });
+
+  it('should decrease the quality of "Conjured" twice as fast', () => {
+    const gr = new GildedRose([new Item('Conjured Mana Cake', 1, 2)]);
+    let item = gr.updateQuality()[0];
+    expect(item.name).toBe('Conjured Mana Cake');
+    expect(item.sellIn).toBe(0);
+    expect(item.quality).toBe(0);
+  });
 });
